@@ -1,3 +1,5 @@
 language: ruby
 script:
   - echo test1
+notifications:
+  slack: oomori:sPZTmTuSd9FLY20ZD0cttqGL
