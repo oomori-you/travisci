@@ -1,5 +1,5 @@
 language: ruby
 script:
-  - echo test1
+  - echo "$SLACK_TOKEN"
 notifications:
   slack: "$SLACK_TOKEN"
