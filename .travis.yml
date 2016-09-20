@@ -1,8 +1,5 @@
 language: ruby
-env:
-  global:
-    - TOKEN=${SLACK_TOKEN}
 script:
-  - echo "$TOKEN"
+  - echo test1
 notifications:
-  slack: "$TOKEN"
+  slack: oomori:sPZTmTuSd9FLY20ZD0cttqGL
