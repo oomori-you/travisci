@@ -2,4 +2,4 @@ language: ruby
 script:
   - echo test1
 notifications:
-  slack: ${SLACK_TOKEN}
+  slack: "$SLACK_TOKEN"
