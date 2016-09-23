@@ -1,5 +1,13 @@
 language: java
 script:
   - java -jar ./bin/yuicompressor-2.4.8.jar ./css/main.css
+
+deploy:
+  provider: s3
+  access_key_id: "${AWS_ACCESS_KEY}"
+  secret_access_key: "${AWS_SECRET_KEY}"
+  bucket: "oomori-travisci"
+  skip_cleanup: true
+
 notifications:
   slack: oomori:sPZTmTuSd9FLY20ZD0cttqGL
