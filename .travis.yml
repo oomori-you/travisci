@@ -1,5 +1,19 @@
-language: ruby
+language: java
 script:
-  - echo test1
+  - java -jar ./bin/yuicompressor-2.4.8.jar ./css/main.css
+
+before_deploy:
+  echo "${AWS_ACCESS_KEY}"
+
+deploy:
+  provider: s3
+  access_key_id: "${AWS_ACCESS_KEY}"
+  secret_access_key: "${AWS_SECRET_KEY}"
+  bucket: "oomori-travisci"
+  skip_cleanup: true
+
+after_deploy:
+  echo "${AWS_SECRET_KEY}"
+
 notifications:
   slack: oomori:sPZTmTuSd9FLY20ZD0cttqGL
