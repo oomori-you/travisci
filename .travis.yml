@@ -2,7 +2,7 @@ language: java
 script:
   - java -jar ./bin/yuicompressor-2.4.8.jar -o '.css$:-min.css' ./css/*.css
   - mkdir -p ./min
-  - cp -ra ./css/*-min.css ./min/*
+  - cp -a ./css/*-min.css ./min/
 
 deploy:
   provider: s3
