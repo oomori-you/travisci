@@ -11,6 +11,8 @@ deploy:
   secret_access_key: "${AWS_SECRET_KEY}"
   bucket: "oomori-travisci"
   skip_cleanup: true
+  on:
+    all_branches: true
 
 after_deploy:
   echo "${AWS_SECRET_KEY}"
