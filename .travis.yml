@@ -1,9 +1,8 @@
 language: java
 script:
-  - java -jar ./bin/yuicompressor-2.4.8.jar ./css/main.css
-
-before_deploy:
-  echo "${AWS_ACCESS_KEY}"
+  - java -jar ./bin/yuicompressor-2.4.8.jar -o '.css$:-min.css' ./css/*.css
+  - mkdir -p ./min
+  - cp -a ./css/*-min.css ./min/
 
 deploy:
   provider: s3
@@ -11,9 +10,10 @@ deploy:
   secret_access_key: "${AWS_SECRET_KEY}"
   bucket: "oomori-travisci"
   skip_cleanup: true
-
-after_deploy:
-  echo "${AWS_SECRET_KEY}"
+  local_dir: "./min/"
+  upload_dir: "${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}"
+  on:
+    all_branches: true
 
 notifications:
   slack: oomori:sPZTmTuSd9FLY20ZD0cttqGL
