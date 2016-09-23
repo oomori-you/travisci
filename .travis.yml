@@ -1,5 +1,5 @@
-language: ruby
+language: java
 script:
-  - echo test1
+  - java -jar ./bin/yuicompressor-2.4.8.jar ./css/main.css
 notifications:
   slack: oomori:sPZTmTuSd9FLY20ZD0cttqGL
